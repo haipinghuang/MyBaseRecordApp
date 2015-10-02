@@ -1,17 +1,17 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!--Activity切换动画-->
-        <style name="ActivityAnimTheme" parent="AppTheme">
-            <item name="android:windowAnimationStyle">@style/ActivityRightInLeftOutStyle</item>
-        </style>
 
-        <style name="ActivityRightInLeftOutStyle" parent="@android:style/Animation.Activity">
-            <item name="android:activityOpenEnterAnimation">@anim/in_from_right</item>
-            <item name="android:activityOpenExitAnimation">@anim/out_from_left</item>
-            <item name="android:activityCloseEnterAnimation">@anim/in_from_left</item>
-            <item name="android:activityCloseExitAnimation">@anim/out_from_right</item>
-        </style>
+    </style>
+    <!--Activity切换动画-->
+    <style name="ActivityAnimTheme" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@style/ActivityRightInLeftOutStyle</item>
     </style>
 
+    <style name="ActivityRightInLeftOutStyle" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/in_from_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/out_from_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/in_from_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/out_from_right</item>
+    </style>
 </resources>
