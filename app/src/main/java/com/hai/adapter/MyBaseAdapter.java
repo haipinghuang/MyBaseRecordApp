@@ -7,6 +7,10 @@ import android.widget.BaseAdapter;
 
 import java.util.List;
 
+/**
+ * 基础适配器 适用于listview
+ * @param <T>
+ */
 public class MyBaseAdapter<T> extends BaseAdapter {
     private List<T> list_data;
     public Context context;

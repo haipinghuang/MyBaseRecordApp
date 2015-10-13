@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 /**
- * 美发fragment的viewpage适配器
- * 
- * @author Administrator
+ * viewpage适配器
  * 
  */
 public class MyPageAdapter extends PagerAdapter {
