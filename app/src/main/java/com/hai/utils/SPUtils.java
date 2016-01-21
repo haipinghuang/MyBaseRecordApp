@@ -1,4 +1,4 @@
-﻿package com.hai.utils;
+package com.hai.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

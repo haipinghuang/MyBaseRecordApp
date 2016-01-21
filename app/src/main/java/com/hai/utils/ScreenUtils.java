@@ -1,4 +1,4 @@
-﻿package com.hai.utils;
+package com.hai.utils;
 
 import android.app.Activity;
 import android.content.Context;

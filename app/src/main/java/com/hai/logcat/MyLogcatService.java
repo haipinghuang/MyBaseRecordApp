@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
 /**
  * 日志记录
  */
-public class MyLogcat extends Service {
+public class MyLogcatService extends Service {
     Thread thread;
     boolean readlog = true;
 

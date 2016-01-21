@@ -1,4 +1,4 @@
-﻿package com.hai.utils;
+package com.hai.utils;
 
 import java.io.File;
 

@@ -1,31 +1,26 @@
 package com.hai;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
+
+import com.hai.utils.MyLog;
+import com.hai.utils.SDCardUtils;
 
 public class MainActivity extends AppCompatActivity {
-
+    private String tag = "hhp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        testSd();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public void testSd() {
+        MyLog.d(getCacheDir().getAbsolutePath());
+        MyLog.d(SDCardUtils.isSDCardEnable() + "");
+        MyLog.d(Environment.getExternalStorageDirectory().getAbsolutePath());
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }
