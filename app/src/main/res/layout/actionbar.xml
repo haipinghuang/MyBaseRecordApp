@@ -8,14 +8,37 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#3b65ed"
-        android:minHeight="?attr/actionBarSize"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="测试情况"
-        android:textSize="28sp" />
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/f_content"
+            class="com.hai.activity.fragment.ContentFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></fragment>
+
+        <fragment
+            class="com.hai.activity.fragment.MenuLeft"
+            android:id="@+id/f_leftMenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="#ffffffff"></fragment>
+
+        <fragment
+            class="com.hai.activity.fragment.MenuRight"
+            android:id="@+id/f_rightMenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="#ffffffff"></fragment>
+
+    </android.support.v4.widget.DrawerLayout>
+
 
 </LinearLayout>

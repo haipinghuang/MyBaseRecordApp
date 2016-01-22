@@ -3,4 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <array name="menu">
+        <item>ment1</item>
+        <item>ment2</item>
+        <item>ment3</item>
+    </array>
 </resources>

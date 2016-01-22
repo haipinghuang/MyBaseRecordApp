@@ -15,12 +15,12 @@ public class ActionBarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actionbar);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.mipmap.back);
         toolbar.setNavigationContentDescription("back");
-        toolbar.setTitle("title");
         toolbar.setLogo(R.mipmap.ic_launcher);
+        toolbar.setTitle("title");
+        toolbar.setSubtitle("subtitle");
         toolbar.inflateMenu(R.menu.menu_main);
-
+        setSupportActionBar(toolbar);
     }
 
 }

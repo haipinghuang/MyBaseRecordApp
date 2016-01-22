@@ -7,18 +7,18 @@
         <item name="colorPrimary">#3a5fcb</item>
         <!-- toolbar text color-->
         <item name="android:textColorPrimary">#20f4bb</item>
-        <item name="android:colorAccent">#3cbe28</item>
+        <!--<item name="android:colorAccent">#3cbe28</item>-->
         <!-- windowBackground color-->
         <item name="android:windowBackground">@color/bg_window</item>
-        <item name="android:navigationBarColor">@android:color/darker_gray</item>
+        <!--<item name="android:navigationBarColor">@android:color/darker_gray</item>-->
         <item name="android:windowSoftInputMode">stateHidden|adjustPan</item>
-        <item name="android:alertDialogStyle">@style/Theme.AppCompat.Light.Dialog.Alert</item>
-        <item name="android:toolbarStyle">@style/ToolbarStyle</item>
+        <!--<item name="android:alertDialogStyle">@style/Theme.AppCompat.Light.Dialog.Alert</item>-->
+        <!--<item name="android:toolbarStyle">@style/ToolbarStyle</item>-->
     </style>
 
     <style name="AppTheme.ToolbarStyle" parent="Base.Widget.AppCompat.Toolbar">
         <!--<item name="actionOverflowButtonStyle">@style/AppTheme.OverflowButtonStyle</item>-->
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="titleTextAppearance">
             @style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse
         </item>
