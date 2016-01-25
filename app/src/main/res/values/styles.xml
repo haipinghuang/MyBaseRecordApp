@@ -1,6 +1,8 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
+
+    <style name="MDTheme" parent="AppTheme">
         <!-- status bar color -->
         <item name="colorPrimaryDark">#7590e1</item>
         <!-- toolbar（actionbar）-->
@@ -8,12 +10,18 @@
         <!-- toolbar text color-->
         <item name="android:textColorPrimary">#20f4bb</item>
         <!--<item name="android:colorAccent">#3cbe28</item>-->
-        <!-- windowBackground color-->
         <item name="android:windowBackground">@color/bg_window</item>
         <!--<item name="android:navigationBarColor">@android:color/darker_gray</item>-->
-        <item name="android:windowSoftInputMode">stateHidden|adjustPan</item>
+        <!--<item name="android:windowSoftInputMode">stateHidden|adjustPan</item>-->
         <!--<item name="android:alertDialogStyle">@style/Theme.AppCompat.Light.Dialog.Alert</item>-->
         <!--<item name="android:toolbarStyle">@style/ToolbarStyle</item>-->
+        <!-- Here we setting appcompat’s actionBarStyle -->
+        <!--<item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>-->
+    </style>
+
+    <style name="MaterialDrawer.Light.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">false</item>
+        <item name="color">@android:color/black</item>
     </style>
 
     <style name="AppTheme.ToolbarStyle" parent="Base.Widget.AppCompat.Toolbar">

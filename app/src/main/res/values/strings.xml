@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">MyBaseRecordApp</string>
-
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <array name="menu">
@@ -8,4 +7,6 @@
         <item>ment2</item>
         <item>ment3</item>
     </array>
+    <string name="drawer_open">打开</string>
+    <string name="drawer_close">关闭</string>
 </resources>

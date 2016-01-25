@@ -31,7 +31,7 @@ public class MenuLeft extends Fragment {
         ListView listView = (ListView) view.findViewById(R.id.listView);
         String[] strings = getResources().getStringArray(R.array.menu);
         List list = Arrays.asList(strings);
-        ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.menu_left, R.id.tv, strings);
+        ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.item_menu, R.id.tv, strings);
         listView.setAdapter(adapter);
         super.onViewCreated(view, savedInstanceState);
     }
