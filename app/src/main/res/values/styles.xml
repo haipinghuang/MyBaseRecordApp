@@ -8,7 +8,7 @@
         <!-- toolbar（actionbar）-->
         <item name="colorPrimary">#3a5fcb</item>
         <!-- toolbar text color-->
-        <item name="android:textColorPrimary">#20f4bb</item>
+        <item name="android:textColorPrimary">#ffffff</item>
         <!--<item name="android:colorAccent">#3cbe28</item>-->
         <item name="android:windowBackground">@color/bg_window</item>
         <!--<item name="android:navigationBarColor">@android:color/darker_gray</item>-->

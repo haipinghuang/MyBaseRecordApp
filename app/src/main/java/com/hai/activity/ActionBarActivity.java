@@ -2,17 +2,21 @@ package com.hai.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.hai.R;
+import com.hai.activity.fragment.ContentFragment;
+import com.hai.activity.fragment.MenuLeft;
 
 /**
  * Created by 黄海 on 2016/1/21.
@@ -25,12 +29,24 @@ public class ActionBarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actionbar);
+        initToolbar();
+        final ContentFragment f_content = (ContentFragment) getSupportFragmentManager().findFragmentById(R.id.f_content);
+        final MenuLeft f_leftMenu = (MenuLeft) getSupportFragmentManager().findFragmentById(R.id.f_leftMenu);
+        Fragment f_rightMenu = getSupportFragmentManager().findFragmentById(R.id.f_rightMenu);
+        f_leftMenu.setOnMenuItemSelectedListener(new MenuLeft.OnMenuItemSelectedListener() {
+            @Override
+            public void menuItemSelected(String title) {
+                mDrawerLayout.closeDrawer(Gravity.LEFT);
+                f_content.refresh(title);
+            }
+        });
+    }
+
+    void initToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setNavigationContentDescription("back");
-//        toolbar.setLogo(R.mipmap.ic_launcher);
+        toolbar.setLogo(R.mipmap.ic_launcher);
         toolbar.setTitle("title");
         toolbar.setSubtitle("subtitle");
-        //
         toolbar.inflateMenu(R.menu.menu_main);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

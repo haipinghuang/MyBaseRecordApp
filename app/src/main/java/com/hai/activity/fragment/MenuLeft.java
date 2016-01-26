@@ -6,8 +6,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hai.R;
 
@@ -33,6 +36,36 @@ public class MenuLeft extends Fragment {
         List list = Arrays.asList(strings);
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.item_menu, R.id.tv, strings);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView tv = (TextView) view;
+                String str = tv.getText().toString();
+                Toast.makeText(getActivity(), str, Toast.LENGTH_SHORT).show();
+                ContentFragment fragment = (ContentFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.f_content);
+                Bundle bundle = new Bundle();
+                bundle.putString("str", str);
+//                fragment.setArguments(bundle);
+                fragment.refresh(str);
+                mMenuItemSelectedListener.menuItemSelected(str);
+            }
+        });
         super.onViewCreated(view, savedInstanceState);
     }
+
+    //选择回调的接口
+    public interface OnMenuItemSelectedListener {
+        void menuItemSelected(String title);
+    }
+
+    /**
+     * 设置回调接口，和管理他的activity交互
+     *
+     * @param menuItemSelectedListener
+     */
+    public void setOnMenuItemSelectedListener(OnMenuItemSelectedListener menuItemSelectedListener) {
+        this.mMenuItemSelectedListener = menuItemSelectedListener;
+    }
+
+    private OnMenuItemSelectedListener mMenuItemSelectedListener;
 }

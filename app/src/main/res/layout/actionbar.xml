@@ -27,7 +27,7 @@
         <fragment
             android:id="@+id/f_leftMenu"
             class="com.hai.activity.fragment.MenuLeft"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="match_parent"
             android:layout_gravity="left"
             android:background="#ffffffff"></fragment>
@@ -35,7 +35,7 @@
         <fragment
             android:id="@+id/f_rightMenu"
             class="com.hai.activity.fragment.MenuRight"
-            android:layout_width="match_parent"
+            android:layout_width="400dp"
             android:layout_height="match_parent"
             android:layout_gravity="right"
             android:background="#ffffffff"></fragment>

@@ -6,8 +6,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hai.R;
 
@@ -33,6 +36,14 @@ public class MenuRight extends Fragment {
         List list = Arrays.asList(strings);
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.item_menu, R.id.tv, strings);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView tv = (TextView) view;
+                String str = tv.getText().toString();
+                Toast.makeText(getActivity(),str,Toast.LENGTH_SHORT).show();
+            }
+        });
         super.onViewCreated(view, savedInstanceState);
     }
 }
