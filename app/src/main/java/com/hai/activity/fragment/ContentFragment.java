@@ -1,14 +1,17 @@
 package com.hai.activity.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.hai.R;
+import com.hai.activity.Activity2;
 import com.hai.utils.MyLog;
 
 /**
@@ -30,13 +33,21 @@ public class ContentFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         t_content = (TextView) view.findViewById(R.id.t_content);
         Bundle bundle = getArguments();
-        if (null!=bundle){
+        if (null != bundle) {
 
             bundle.getString("str");
-            MyLog.d( bundle.getString("str"));
+            MyLog.d(bundle.getString("str"));
         }
+        Button btn = (Button) view.findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), Activity2.class));
+            }
+        });
 
     }
+
 
     public void refresh(String str) {
         t_content.setText(str);
