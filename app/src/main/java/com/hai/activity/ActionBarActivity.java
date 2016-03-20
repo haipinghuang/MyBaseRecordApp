@@ -42,13 +42,16 @@ public class ActionBarActivity extends AppCompatActivity {
         });
     }
 
+
     void initToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setLogo(R.mipmap.ic_launcher);
         toolbar.setTitle("title");
         toolbar.setSubtitle("subtitle");
+        //这里加载菜单无效，应到onCreateOptionsMenu
         toolbar.inflateMenu(R.menu.menu_main);
         setSupportActionBar(toolbar);
+        //设置显示返回箭头
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.drawer_open,
@@ -60,10 +63,10 @@ public class ActionBarActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_settings:
-                        Toast.makeText(ActionBarActivity.this, "action_settings", 0).show();
+                        Toast.makeText(ActionBarActivity.this, "action_settings", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_share:
-                        Toast.makeText(ActionBarActivity.this, "action_share", 0).show();
+                        Toast.makeText(ActionBarActivity.this, "action_share", Toast.LENGTH_SHORT).show();
                         break;
                     default:
                         break;
