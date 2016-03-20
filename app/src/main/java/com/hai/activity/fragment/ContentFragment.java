@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.hai.R;
@@ -38,16 +37,12 @@ public class ContentFragment extends Fragment {
             bundle.getString("str");
             MyLog.d(bundle.getString("str"));
         }
-        Button btn = (Button) view.findViewById(R.id.btn);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), Activity2.class));
-            }
-        });
 
     }
 
+    public void next(View v) {
+        startActivity(new Intent(getActivity(), Activity2.class));
+    }
 
     public void refresh(String str) {
         t_content.setText(str);

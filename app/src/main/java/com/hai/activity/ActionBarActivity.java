@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.hai.R;
@@ -24,6 +25,7 @@ import com.hai.activity.fragment.MenuLeft;
 public class ActionBarActivity extends AppCompatActivity {
     DrawerLayout mDrawerLayout;
     ActionBarDrawerToggle mDrawerToggle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,16 +44,17 @@ public class ActionBarActivity extends AppCompatActivity {
         });
     }
 
+    public void next(View v) {
+        startActivity(new Intent(this, Activity2.class));
+    }
 
     void initToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setLogo(R.mipmap.ic_launcher);
         toolbar.setTitle("title");
         toolbar.setSubtitle("subtitle");
-        //这里加载菜单无效，应到onCreateOptionsMenu
         toolbar.inflateMenu(R.menu.menu_main);
         setSupportActionBar(toolbar);
-        //设置显示返回箭头
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.drawer_open,
@@ -63,10 +66,10 @@ public class ActionBarActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_settings:
-                        Toast.makeText(ActionBarActivity.this, "action_settings", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ActionBarActivity.this, "action_settings", 0).show();
                         break;
                     case R.id.action_share:
-                        Toast.makeText(ActionBarActivity.this, "action_share", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ActionBarActivity.this, "action_share", 0).show();
                         break;
                     default:
                         break;

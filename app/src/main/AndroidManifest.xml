@@ -19,7 +19,7 @@
         </activity>
         <activity
             android:name=".activity.Activity2"
-            android:theme="@style/MDTheme"></activity>
+            android:theme="@style/MDTheme" />
     </application>
 
 </manifest>
