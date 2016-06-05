@@ -8,6 +8,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="btn"
         android:text="建设路口附近的两款手机" />
 
 </RelativeLayout>

@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -20,7 +22,7 @@ import java.lang.reflect.Field;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -36,7 +38,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
     // 程序的Context对象
     private Context mContext;
     // 用来存储设备信息和异常信息
-    private Map<String, String> infos = new HashMap<String, String>();
+    private Map<String, String> infos = new LinkedHashMap<String, String>();
 
     // 用于格式化日期,作为日志文件名的一部分
     private DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss  ");
@@ -97,7 +99,6 @@ public class CrashHandler implements UncaughtExceptionHandler {
         if (ex == null) {
             return false;
         }
-        // 使用Toast来显示异常信息
         new Thread() {
             @Override
             public void run() {
@@ -137,7 +138,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
             try {
                 field.setAccessible(true);
                 infos.put(field.getName(), field.get(null).toString());
-                Log.d(TAG, field.getName() + " : " + field.get(null));
+//                Log.d(TAG, field.getName() + " : " + field.get(null));
             } catch (Exception e) {
                 Log.e(TAG, "an error occured when collect crash info", e);
             }
@@ -158,28 +159,31 @@ public class CrashHandler implements UncaughtExceptionHandler {
             sb.append(key + "=" + value + "\n");
         }
 
-        Writer writer = new StringWriter();
-        PrintWriter printWriter = new PrintWriter(writer);
+        StringWriter writer = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(writer,true);
         ex.printStackTrace(printWriter);
         Throwable cause = ex.getCause();
         while (cause != null) {
             cause.printStackTrace(printWriter);
             cause = cause.getCause();
         }
-        printWriter.close();
         String result = writer.toString();
+        printWriter.close();
         String time = formatter.format(new Date());
         sb.append(time + result);
         try {
-            long timestamp = System.currentTimeMillis();
-            String fileName = "crash.log";
+            String fileName = "crash.txt";
             if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/logcat/";
-                File dir = new File(path);
-                if (!dir.exists()) {
-                    dir.mkdirs();
+                String dir = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "crash";
+                File path = new File(dir);
+                if (!path.exists()) {
+                    path.mkdir();
                 }
-                FileOutputStream fos = new FileOutputStream(path + fileName, true);
+                File file = new File(path, fileName);
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                FileOutputStream fos = new FileOutputStream(file.getAbsolutePath(), true);
                 fos.write((sb.toString()).getBytes());
                 fos.close();
             }

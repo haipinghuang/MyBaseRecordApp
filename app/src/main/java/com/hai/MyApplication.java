@@ -5,14 +5,19 @@ import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.os.StrictMode;
 
+import com.hai.logcat.CrashHandler;
+
 /**
  * Created by 黄海 on 2016/3/1.
  */
 public class MyApplication extends Application {
+    CrashHandler handler = null;
     @Override
     public void onCreate() {
         super.onCreate();
         setStrictMode();
+        handler = CrashHandler.getInstance();
+        handler.init(getApplicationContext());
     }
 
     /**
